@@ -17,7 +17,23 @@ class AuthViewModel with ChangeNotifier {
     _myRepo.postApi(data).then((value) {
       if (kDebugMode) {
         setLoading(false);
-        Utils.FlushbarErrorMessage('Login Successfully', context);
+        Utils.FlushbarErrorMessage(value.toString(), context);
+      }
+    }).onError((error, stackTrace) {
+      if (kDebugMode) {
+        setLoading(false);
+        Utils.FlushbarErrorMessage(error.toString(), context);
+      }
+    });
+    notifyListeners();
+  }
+
+  Future<void> signUpApi(Map data, BuildContext context) async {
+    setLoading(true);
+    _myRepo.postApi(data).then((value) {
+      if (kDebugMode) {
+        setLoading(false);
+        Utils.FlushbarErrorMessage(value.toString(), context);
       }
     }).onError((error, stackTrace) {
       if (kDebugMode) {
