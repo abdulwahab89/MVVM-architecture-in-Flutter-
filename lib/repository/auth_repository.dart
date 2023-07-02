@@ -9,7 +9,7 @@ class AuthRepository {
       dynamic response = _apiServices.getPostApiResponse(AppUrl.loginUrl, data);
       return response;
     } catch (e) {
-      rethrow;
+      throw e;
     }
   }
 
@@ -19,7 +19,7 @@ class AuthRepository {
           _apiServices.getPostApiResponse(AppUrl.registeUrl, data);
       return response;
     } catch (e) {
-      rethrow;
+      throw e;
     }
   }
 }

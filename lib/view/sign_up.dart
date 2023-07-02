@@ -89,6 +89,7 @@ class _SignUpState extends State<SignUp> {
             ),
             RoundButton(
                 title: 'Sign up',
+                loading: authViewMode.signUpLoading,
                 onPress: () {
                   if (_emailController.text.isEmpty) {
                     Utils.FlushbarErrorMessage("Enter email please", context);
@@ -110,7 +111,7 @@ class _SignUpState extends State<SignUp> {
                 onTap: () {
                   Navigator.pushNamed(context, RoutesName.login);
                 },
-                child: Text("Already have an account? Login")),
+                child: const Text("Already have an account? Login")),
           ],
         ),
       ),
