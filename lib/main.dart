@@ -24,7 +24,9 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
         ChangeNotifierProvider(create: (_) => UserViewModel())
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
+        themeMode: ThemeMode.dark,
+        theme: ThemeData.dark(),
         initialRoute: RoutesName.splash,
         onGenerateRoute: Routes.generateRoute,
       ),

@@ -4,7 +4,7 @@ import 'package:mvvm/res/app_url.dart';
 
 class AuthRepository {
   final BaseApiServices _apiServices = NetworkApiService();
-  Future<dynamic> postApi(dynamic data) async {
+  Future<dynamic> loginApi(dynamic data) async {
     try {
       dynamic response = _apiServices.getPostApiResponse(AppUrl.loginUrl, data);
       return response;

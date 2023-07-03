@@ -25,8 +25,9 @@ class AuthViewModel with ChangeNotifier {
   final _myRepo = AuthRepository();
   Future<void> loginApi(dynamic data, BuildContext context) async {
     setLoading(true);
-    _myRepo.postApi(data).then((value) {
-      final sharedPreferences = Provider.of<UserViewModel>(context);
+    _myRepo.loginApi(data).then((value) {
+      final sharedPreferences =
+          Provider.of<UserViewModel>(context, listen: false);
       sharedPreferences.safeUser(UserModel(token: value['token'].toString()));
 
       Utils.FlushbarErrorMessage("Login Successful", context);
